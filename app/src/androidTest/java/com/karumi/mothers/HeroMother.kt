@@ -18,7 +18,10 @@ class HeroMother {
         fun givenAHero(id: Int = 1, block: HeroBuilder.() -> Unit): SuperHero =
             HeroBuilder(id).apply(block).build()
 
-        fun givenAHeroWithVeryLongName() = HeroMother.givenAHero { name = LOREM_IPSUM }
+        fun givenAHeroWithVeryLongName(isAvenger: Boolean = false) = HeroMother.givenAHero {
+            this.name = LOREM_IPSUM
+            this.isAvenger = isAvenger
+        }
 
         fun givenAHeroWithVeryLongDescription() = HeroMother.givenAHero { name = LOREM_IPSUM }
     }

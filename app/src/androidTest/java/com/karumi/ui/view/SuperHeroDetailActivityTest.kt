@@ -15,54 +15,54 @@ import kotlinx.android.synthetic.main.super_hero_detail_activity.view.*
 import org.junit.Test
 import org.mockito.Mock
 
-class SuperHeroDetailActivityTest : AcceptanceTest<SuperHeroDetailActivity>(SuperHeroDetailActivity::class.java) {
+//class SuperHeroDetailActivityTest : AcceptanceTest<SuperHeroDetailActivity>(SuperHeroDetailActivity::class.java) {
+//
+//    @Mock
+//    private lateinit var repository: SuperHeroRepository
+//
 
-    @Mock
-    private lateinit var repository: SuperHeroRepository
+//    @Test
+//    fun showsAvengerDetail() {
+//        givenAHero(HeroMother.givenAHero { isAvenger = true })
+//
+//        val activity = startActivity()
+//
+//        compareScreenshot(activity)
+//    }
+//
+//    @Test
+//    fun showsRegularHeroDetail() {
+//        givenAHero(HeroMother.givenAHero { isAvenger = false })
+//
+//        val activity = startActivity()
+//
+//        compareScreenshot(activity)
+//    }
+//
+//    @Test
+//    fun showsAHeroWithAVeryLongName() {
+//        givenAHero(HeroMother.givenAHeroWithVeryLongName())
+//
+//        val activity = startActivity()
+//
+//        compareScreenshot(activity)
+//    }
+//
+//    @Test
+//    fun showsAHeroWithAVeryLongDescription() {
+//        givenAHero(HeroMother.givenAHeroWithVeryLongDescription())
+//
+//        val activity = startActivity()
+//
+//        compareScreenshot(activity)
+//    }
 
-
-    @Test
-    fun showsAvengerDetail() {
-        givenAHero(HeroMother.givenAHero { isAvenger = true })
-
-        val activity = startActivity()
-
-        compareScreenshot(activity)
-    }
-
-    @Test
-    fun showsRegularHeroDetail() {
-        givenAHero(HeroMother.givenAHero { isAvenger = false })
-
-        val activity = startActivity()
-
-        compareScreenshot(activity)
-    }
-
-    @Test
-    fun showsAHeroWithAVeryLongName() {
-        givenAHero(HeroMother.givenAHeroWithVeryLongName())
-
-        val activity = startActivity()
-
-        compareScreenshot(activity)
-    }
-
-    @Test
-    fun showsAHeroWithAVeryLongDescription() {
-        givenAHero(HeroMother.givenAHeroWithVeryLongDescription())
-
-        val activity = startActivity()
-
-        compareScreenshot(activity)
-    }
-
-    private fun givenAHero(hero: SuperHero) {
-        doReturn(hero).whenever(repository).getByName(any())
-    }
-
-    override val testDependencies = Kodein.Module(allowSilentOverride = true) {
-        bind<SuperHeroRepository>() with instance(repository)
-    }
-
-}
+//    private fun givenAHero(hero: SuperHero) {
+//        doReturn(hero).whenever(repository).getByName(any())
+//    }
+//
+//    override val testDependencies = Kodein.Module(allowSilentOverride = true) {
+//        bind<SuperHeroRepository>() with instance(repository)
+//    }
+//
+//}
