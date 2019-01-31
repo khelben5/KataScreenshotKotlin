@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.karumi.R
 import com.karumi.domain.model.SuperHero
+import com.karumi.domain.model.Team
 import com.karumi.ui.presenter.SuperHeroesPresenter
 import com.karumi.ui.utils.setImageBackground
 
@@ -21,7 +22,7 @@ class SuperHeroViewHolder(
     fun render(superHero: SuperHero) {
         hookListeners(superHero)
         renderSuperHeroPhoto(superHero.photo)
-        renderSuperHeroName(superHero.name)
+        renderSuperHeroNameAndTeam(superHero.name, superHero.team, superHero.isAvailable)
         renderAvengersBadge(superHero.isAvenger)
     }
 
@@ -33,8 +34,9 @@ class SuperHeroViewHolder(
         photoImageView.setImageBackground(photo)
     }
 
-    private fun renderSuperHeroName(name: String) {
-        nameTextView.text = name
+    private fun renderSuperHeroNameAndTeam(name: String, team: Team?, isAvailable: Boolean) {
+        val text = team?.let { "$name - $it" } ?: name
+        nameTextView.text = text.plus("(${if (isAvailable) "A" else "U"})")
     }
 
     private fun renderAvengersBadge(isAvenger: Boolean) {

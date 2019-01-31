@@ -3,6 +3,7 @@ package com.karumi.ui.view
 import android.support.test.InstrumentationRegistry.getInstrumentation
 import android.view.LayoutInflater
 import com.karumi.R
+import com.karumi.domain.model.Team
 import com.karumi.mothers.HeroMother
 import com.karumi.ui.presenter.SuperHeroesPresenter
 import com.karumi.ui.view.adapter.SuperHeroViewHolder
@@ -22,7 +23,7 @@ class SuperHeroViewHolderTest : ScreenshotTest {
     }
 
     @Test
-    fun showsAnAvenger() {
+    fun showsAnAvengerWithNoTeam() {
         val avenger = HeroMother.givenAHero { isAvenger = true }
         val holder = givenASuperHeroViewHolder()
 
@@ -69,6 +70,64 @@ class SuperHeroViewHolderTest : ScreenshotTest {
         val avenger = HeroMother.givenAHero {
             name = ""
             isAvenger = true
+        }
+        val holder = givenASuperHeroViewHolder()
+
+        holder.render(avenger)
+
+        compareScreenshot(holder, R.dimen.super_hero_row_height)
+    }
+
+    @Test
+    fun showsAnAvengerFromWestCoastTeam() {
+        val avenger = HeroMother.givenAHero {
+            name = "Any name"
+            isAvenger = true
+            team = Team.WEST_COAST
+        }
+        val holder = givenASuperHeroViewHolder()
+
+        holder.render(avenger)
+
+        compareScreenshot(holder, R.dimen.super_hero_row_height)
+    }
+
+    @Test
+    fun showsAnAvengerFromEastCoastTeam() {
+        val avenger = HeroMother.givenAHero {
+            name = "Any name"
+            isAvenger = true
+            team = Team.EAST_COAST
+        }
+        val holder = givenASuperHeroViewHolder()
+
+        holder.render(avenger)
+
+        compareScreenshot(holder, R.dimen.super_hero_row_height)
+    }
+
+    @Test
+    fun showsAnAvailableAvengerFromEastCoastTeam() {
+        val avenger = HeroMother.givenAHero {
+            name = "Any name"
+            isAvenger = true
+            team = Team.EAST_COAST
+            isAvailable = true
+        }
+        val holder = givenASuperHeroViewHolder()
+
+        holder.render(avenger)
+
+        compareScreenshot(holder, R.dimen.super_hero_row_height)
+    }
+
+    @Test
+    fun showsAnUnAvailableAvengerFromEastCoastTeam() {
+        val avenger = HeroMother.givenAHero {
+            name = "Any name"
+            isAvenger = true
+            team = Team.EAST_COAST
+            isAvailable = false
         }
         val holder = givenASuperHeroViewHolder()
 

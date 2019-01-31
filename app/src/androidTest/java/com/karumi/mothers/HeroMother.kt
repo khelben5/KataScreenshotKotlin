@@ -1,6 +1,7 @@
 package com.karumi.mothers
 
 import com.karumi.domain.model.SuperHero
+import com.karumi.domain.model.Team
 
 private const val LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus " +
     "maximus pharetra. Vestibulum vitae orci eros. Aliquam non ipsum lobortis, " +
@@ -31,7 +32,9 @@ class HeroMother {
         var name = "SuperHero - $id"
         var description = "Description Super Hero - $id"
         var isAvenger = false
+        var isAvailable = true
+        var team: Team? = null
 
-        fun build() = SuperHero(name, null, isAvenger, description)
+        fun build() = SuperHero(name, null, isAvenger, team, isAvailable, description)
     }
 }
